@@ -1,0 +1,6 @@
+API documentation
+=================
+
+.. automodule:: api
+   :synopsis: Tools for connection to Zendisk
+   :members:
