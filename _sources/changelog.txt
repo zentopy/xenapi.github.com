@@ -1,0 +1,18 @@
+Changelog
+=========
+
+Changes in Version pre-alpha
+-----------------------------
+
+Version pre-alpha adds basic functionality.
+
+Important New Features:
+
+- Implemented :class:`~api`
+
+Issues Resolved
+...............
+
+(Example) See the `Issue 69`_
+
+.. _Issue 69: https://github.com/muratk/zenkey/issues/69

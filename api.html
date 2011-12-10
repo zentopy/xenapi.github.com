@@ -1,0 +1,240 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API documentation &mdash; XenAPI pre-alpha documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     'pre-alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="XenAPI pre-alpha documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">XenAPI pre-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-api">
+<span id="api-documentation"></span><h1>API documentation<a class="headerlink" href="#module-api" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-api"></span><p>An instance of this module should be run for each available core,
+each such having thousands of non-blocking greenlets for concurrent connections.</p>
+<dl class="class">
+<dt id="api.Files">
+<em class="property">class </em><tt class="descclassname">api.</tt><tt class="descname">Files</tt><a class="headerlink" href="#api.Files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="api.Users">
+<em class="property">class </em><tt class="descclassname">api.</tt><tt class="descname">Users</tt><big>(</big><em>userid=None</em>, <em>email=None</em><big>)</big><a class="headerlink" href="#api.Users" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Users (lazily set):</dt>
+<dd>_id: monotonic int
+email
+first
+last
+link: permanent url for the user (e.g., zentopy.com/shaun)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.create_dir">
+<tt class="descclassname">api.</tt><tt class="descname">create_dir</tt><big>(</big><em>*args</em>, <em>**kargs</em><big>)</big><a class="headerlink" href="#api.create_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="api.create_file">
+<tt class="descclassname">api.</tt><tt class="descname">create_file</tt><big>(</big><em>*args</em>, <em>**kargs</em><big>)</big><a class="reference internal" href="_modules/api.html#create_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.create_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new file at path</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.datetime_from_oid">
+<tt class="descclassname">api.</tt><tt class="descname">datetime_from_oid</tt><big>(</big><em>oid_str</em><big>)</big><a class="headerlink" href="#api.datetime_from_oid" title="Permalink to this definition">¶</a></dt>
+<dd><p>To avoid creating an object id just for the timestamp</p>
+<p>Don&#8217;t create the object that would be required if using the included function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">bson</span><span class="o">.</span><span class="n">objectid</span><span class="o">.</span><span class="n">ObjectId</span><span class="p">(</span><span class="s">&#39;oid&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">generation_time</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Args :</th><td class="field-body"><ul class="first">
+<li><dl class="first docutils">
+<dt>oid_str (<tt class="xref py py-class docutils literal"><span class="pre">__built_in__.str</span></tt>):</dt>
+<dd><p class="first last">str representation of oid (e.g., &#8216;4ee094cd6bb36f3a0b0e5174&#8217;)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><ul class="first last">
+<li><dl class="first docutils">
+<dt><a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime.datetime</span></tt></a>:</dt>
+<dd><p class="first last">instance representing the date and time the object was created</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.delete_dir">
+<tt class="descclassname">api.</tt><tt class="descname">delete_dir</tt><big>(</big><em>*args</em>, <em>**kargs</em><big>)</big><a class="headerlink" href="#api.delete_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively delete all files under path and the directory itself</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.delete_file">
+<tt class="descclassname">api.</tt><tt class="descname">delete_file</tt><big>(</big><em>*args</em>, <em>**kargs</em><big>)</big><a class="reference internal" href="_modules/api.html#delete_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.delete_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="api.find_user">
+<tt class="descclassname">api.</tt><tt class="descname">find_user</tt><big>(</big><em>*args</em>, <em>**kargs</em><big>)</big><a class="headerlink" href="#api.find_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the id associated with a given email address</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.get_dir">
+<tt class="descclassname">api.</tt><tt class="descname">get_dir</tt><big>(</big><em>*args</em>, <em>**kargs</em><big>)</big><a class="headerlink" href="#api.get_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="api.get_file">
+<tt class="descclassname">api.</tt><tt class="descname">get_file</tt><big>(</big><em>*args</em>, <em>**kargs</em><big>)</big><a class="reference internal" href="_modules/api.html#get_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.get_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="api.get_user_list">
+<tt class="descclassname">api.</tt><tt class="descname">get_user_list</tt><big>(</big><big>)</big><a class="headerlink" href="#api.get_user_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="api.update_dir">
+<tt class="descclassname">api.</tt><tt class="descname">update_dir</tt><big>(</big><em>*args</em>, <em>**kargs</em><big>)</big><a class="headerlink" href="#api.update_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="api.update_file">
+<tt class="descclassname">api.</tt><tt class="descname">update_file</tt><big>(</big><em>*args</em>, <em>**kargs</em><big>)</big><a class="reference internal" href="_modules/api.html#update_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.update_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a file located at &#64;path</p>
+<p>Matches requests like, &#8220;PUT /users/25/files/path/to/some/file&#8221;,
+whereupon user==25 and path==&#8217;path/to/some/file&#8217;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Args :</th><td class="field-body"><ul class="first">
+<li><dl class="first docutils">
+<dt>userid (int):</dt>
+<dd><p class="first last">The id of the user whose files to get.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>path (str):</dt>
+<dd><p class="first last">The full path of the file (&#8220;path/to/file&#8221;).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><ul class="first last">
+<li><p class="first">str.  The return status:</p>
+<div class="highlight-python"><pre>fid -- ID of the updated file.
+404 -- File already existed.</pre>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/api.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">XenAPI pre-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, shaun.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>
